@@ -25,7 +25,6 @@
     --radius-lg: 14px;
     --shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
   }
-
   [data-theme="light"] {
     --bg-app: #f1f5f9;
     --bg-sidebar: #ffffff;
@@ -35,10 +34,8 @@
     --text-main: #0f172a;
     --text-muted: #64748b;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, system-ui, sans-serif; }
   body { background: var(--bg-app); color: var(--text-main); overflow: hidden; height: 100vh; }
-
   .app { display: flex; height: 100vh; width: 100vw; position: relative; }
   
   /* Sidebar */
@@ -54,14 +51,12 @@
     background-size: 24px 24px; background-color: var(--bg-workspace);
     overflow: hidden;
   }
-
   .lab-header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--border-color); }
   .lab-brand { display: flex; align-items: center; gap: 10px; }
   .lab-icon { font-size: 28px; }
   .lab-title { font-size: 16px; font-weight: 700; color: var(--primary); letter-spacing: 0.5px; }
   .lab-subtitle { font-size: 11px; color: var(--text-muted); }
   .theme-toggle { background: none; border: 1px solid var(--border-color); color: var(--text-main); padding: 6px 10px; border-radius: var(--radius-sm); cursor: pointer; font-size: 12px; }
-
   .section-title { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
   
   .kit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
@@ -73,7 +68,6 @@
   .kit-card.active { border-color: var(--primary); background: var(--primary-glow); }
   .kit-name { font-weight: 600; font-size: 11px; }
   .kit-desc { font-size: 9px; color: var(--text-muted); margin-top: 2px; }
-
   /* Component Palette */
   .component-list { display: flex; flex-direction: column; gap: 6px; }
   .component-item {
@@ -88,7 +82,6 @@
   .comp-name { font-weight: 600; font-size: 12px; display: flex; justify-content: space-between; }
   .comp-count { background: var(--border-color); color: var(--text-muted); font-size: 9px; padding: 1px 6px; border-radius: 10px; }
   .comp-desc { font-size: 10px; color: var(--text-muted); }
-
   /* Educational Explanation Panel */
   .explain-panel {
     padding: 10px; background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(139,92,246,0.1));
@@ -96,7 +89,6 @@
     color: var(--text-main); min-height: 60px;
   }
   .explain-title { font-weight: 700; color: var(--blue); margin-bottom: 3px; }
-
   /* Floating Panels (Now fully draggable via header) */
   .floating-panel {
     position: absolute; background: var(--panel-bg); backdrop-filter: blur(12px);
@@ -111,7 +103,6 @@
   .panel-actions { display: flex; gap: 6px; }
   .action-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 11px; padding: 2px 6px; border-radius: 4px; }
   .action-btn:hover { background: rgba(255,255,255,0.1); color: var(--text-main); }
-
   /* Multimeter HUD */
   .multimeter-panel { top: 16px; left: 16px; width: 220px; }
   .mm-screen {
@@ -123,21 +114,60 @@
   .mm-controls { padding: 8px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
   .mm-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: var(--text-main); padding: 5px; font-size: 10px; border-radius: 4px; cursor: pointer; text-align: center; }
   .mm-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; }
-
   /* Checklist / Mission Control */
   .checklist-panel { top: 16px; right: 16px; width: 260px; }
   .checklist-body { padding: 10px; display: flex; flex-direction: column; gap: 6px; font-size: 11px; }
   .check-row { display: flex; align-items: center; gap: 8px; cursor: pointer; }
   .check-row input { accent-color: var(--green); cursor: pointer; }
   .check-row.done { color: var(--green); text-decoration: line-through; }
-
+  /* Challenges Link Panel */
+  .challenges-panel { top: 160px; right: 16px; width: 260px; border: 1px solid var(--border-color); border-radius: var(--radius-lg); background: var(--panel-bg); backdrop-filter: blur(12px); transition: all 0.2s; }
+  .challenges-panel:hover {
+    border-color: var(--primary);
+    transform: translateY(-1px);
+  }
+  .challenges-panel a {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: inherit;
+    align-items: center;
+  }
+  .challenges-panel .card-icon {
+    grid-row: 1 / span 2;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .challenges-panel .card-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.4;
+  }
+  .challenges-panel .card-desc {
+    font-size: 10px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    transition: color 0.15s ease;
+  }
+  .challenges-panel a:hover .card-desc {
+    color: var(--blue);
+  }
   /* Bottom Docks (Code, JSON & Serial) */
   .code-panel { top: 250px; left: 16px; width: 380px; height: 260px; display: none; }
   .code-panel.show { display: flex; }
   .json-panel { top: 250px; left: 410px; width: 380px; height: 260px; display: none; }
   .json-panel.show { display: flex; }
   .serial-panel { top: 250px; right: 16px; width: 280px; height: 260px; }
-
   .code-editor, .json-editor {
     flex: 1; background: #020617; color: #38bdf8; border: none; padding: 10px;
     font-family: 'Courier New', monospace; font-size: 11px; resize: none; line-height: 1.5; outline: none;
@@ -147,7 +177,6 @@
     flex: 1; background: #020617; color: #4ade80; padding: 10px; font-family: 'Courier New', monospace;
     font-size: 10px; overflow-y: auto; line-height: 1.5; display: flex; flex-direction: column; gap: 2px;
   }
-
   /* Toolbar */
   .toolbar {
     position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
@@ -167,12 +196,10 @@
   .btn-json { background: #0284c7; color: #fff; }
   .btn-auto { background: #0d9488; color: #fff; }
   .btn-clear { background: var(--border-color); color: var(--text-main); }
-
   /* Workspace Elements */
   .placed { position: absolute; cursor: move; user-select: none; transition: box-shadow 0.2s; }
   .placed:hover { box-shadow: 0 0 0 2px var(--primary); border-radius: var(--radius-md); }
   .placed.selected { box-shadow: 0 0 0 3px var(--primary); border-radius: var(--radius-md); }
-
   /* Arduino Uno Graphic */
   .arduino {
     width: 200px; height: 270px; background: linear-gradient(135deg, #008085, #004d52);
@@ -186,10 +213,10 @@
     cursor: crosshair; border: 1px solid rgba(255,255,255,0.1); transition: all 0.1s;
   }
   .pin:hover { background: rgba(255,255,255,0.6); color: #000; transform: scale(1.15); }
+  .pin.selected { box-shadow: 0 0 0 2px var(--green); background: rgba(34, 197, 94, 0.3); }
   .pin.power { background: #b91c1c; }
   .pin.gnd { background: #334155; }
   .pin.digital { background: #ca8a04; color: #000; font-weight: 700; }
-
   /* Breadboard */
   .breadboard {
     width: 420px; height: 240px; background: #fdfbf7; border-radius: 6px; border: 3px solid #e5e7eb;
@@ -204,7 +231,6 @@
   .bb-body { display: flex; flex-direction: column; gap: 2px; }
   .bb-row { display: flex; align-items: center; gap: 4px; }
   .bb-label { font-size: 9px; font-weight: 700; color: #64748b; width: 14px; text-align: center; }
-
   /* LED */
   .led-wrap { display: flex; flex-direction: column; align-items: center; }
   .led-bulb {
@@ -218,7 +244,6 @@
   }
   .led-pins { display: flex; gap: 8px; margin-top: 2px; }
   .led-pin { width: 3px; height: 14px; background: #64748b; cursor: crosshair; }
-
   /* Resistor */
   .resistor { display: flex; align-items: center; cursor: pointer; }
   .res-body {
@@ -227,27 +252,23 @@
     font-size: 8px; font-weight: 700; color: #171717; box-shadow: inset 0 -2px 4px rgba(0,0,0,0.3);
   }
   .res-pin { width: 3px; height: 14px; background: #64748b; cursor: crosshair; }
-
   /* Push Button Component */
   .btn-comp { display: flex; flex-direction: column; align-items: center; }
   .btn-base { width: 36px; height: 26px; background: #374151; border-radius: 4px; position: relative; box-shadow: inset 0 -2px 4px rgba(0,0,0,0.4); }
   .btn-top { position: absolute; top: 2px; left: 2px; width: 32px; height: 18px; background: linear-gradient(180deg, #f87171, #dc2626); border-radius: 3px; }
   .btn-pins { display: flex; gap: 20px; margin-top: 2px; }
   .btn-pin { width: 3px; height: 12px; background: #64748b; cursor: crosshair; }
-
   /* 9V Battery Component */
   .battery { display: flex; flex-direction: column; align-items: center; }
   .bat-body { width: 34px; height: 46px; background: linear-gradient(180deg, #fef3c7, #fcd34d); border-radius: 4px; border: 2px solid #f59e0b; position: relative; }
   .bat-pins { display: flex; gap: 14px; margin-top: 2px; }
   .bat-pin { width: 3px; height: 12px; background: #64748b; cursor: crosshair; }
-
   /* Speaker Component */
   .speaker { display: flex; flex-direction: column; align-items: center; }
   .spk-body { width: 40px; height: 40px; background: #d1d5db; border-radius: 50%; border: 2px solid #9ca3af; display: flex; align-items: center; justify-content: center; }
   .spk-cone { width: 18px; height: 18px; background: #6b7280; border-radius: 50%; }
   .spk-pins { display: flex; gap: 16px; margin-top: 2px; }
   .spk-pin { width: 3px; height: 12px; background: #64748b; cursor: crosshair; }
-
   /* Wires SVG Layer */
   .wires-layer { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
   .wire-path { fill: none; stroke-width: 4; stroke-linecap: round; pointer-events: stroke; cursor: pointer; transition: filter 0.2s; }
@@ -257,61 +278,13 @@
   .wire-green { stroke: #22c55e; }
   .wire-yellow { stroke: #eab308; }
   .wire-blue { stroke: #3b82f6; }
-
   .wire-palette { display: flex; gap: 6px; margin-top: 6px; }
   .wire-swatch { width: 26px; height: 26px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: transform 0.1s; }
   .wire-swatch:hover { transform: scale(1.15); }
   .wire-swatch.selected { border-color: var(--text-main); transform: scale(1.2); }
-  .challenges-panel:hover {
-    border-color: #4b5563;
-    transform: translateY(-1px);
-  }
-
-  .challenges-panel a {
-    display: grid;
-    grid-template-columns: 36px 1fr;
-    grid-template-rows: auto auto;
-    column-gap: 12px;
-    padding: 12px 14px;
-    text-decoration: none;
-    color: inherit;
-    align-items: center;
-  }
-
-  .challenges-panel .card-icon {
-    grid-row: 1 / span 2;
-    font-size: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .challenges-panel .card-title {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-main);
-    line-height: 1.4;
-  }
-
-  .challenges-panel .card-desc {
-    font-size: 10px;
-    color: var(--text-muted);
-    line-height: 1.4;
-    transition: color 0.15s ease;
-  }
-
-  .challenges-panel a:hover .card-desc {
-    color: var(--blue);
-  }
-  
 </style>
 </head>
 <body>
-
 <div class="app">
   <!-- SIDEBAR -->
   <div class="sidebar">
@@ -325,7 +298,6 @@
       </div>
       <button class="theme-toggle" id="themeToggle" title="Toggle Theme">☀️</button>
     </div>
-
     <!-- Kit Collections -->
     <div>
       <h3 class="section-title">📦 Kit Collections</h3>
@@ -348,7 +320,6 @@
         </div>
       </div>
     </div>
-
     <!-- Component Inventory -->
     <div>
       <h3 class="section-title">🧩 Component Inventory</h3>
@@ -383,13 +354,11 @@
         </div>
       </div>
     </div>
-
     <!-- Educational Explanation Panel -->
     <div class="explain-panel" id="explainPanel">
       <div class="explain-title" id="expTitle">💡 Component Guide</div>
       <div id="expText">Hover over any component in the inventory above to read its electronics engineering explanation and usage guide.</div>
     </div>
-
     <!-- Wire Colors -->
     <div>
       <h3 class="section-title">🔗 Jumper Wires</h3>
@@ -402,12 +371,10 @@
       </div>
     </div>
   </div>
-
   <!-- WORKSPACE -->
   <div class="workspace" id="workspace">
     <svg class="wires-layer" id="wires"></svg>
     <div id="canvas"></div>
-
     <!-- Multimeter HUD -->
     <div class="floating-panel multimeter-panel">
       <div class="panel-header"><span>🎛️ Multimeter HUD</span></div>
@@ -419,7 +386,6 @@
         <button class="mm-btn">Ω</button>
       </div>
     </div>
-
     <!-- Challenges Checklist -->
     <div class="floating-panel checklist-panel">
       <div class="panel-header"><span>🎯 Lab Challenges</span></div>
@@ -430,16 +396,14 @@
         <label class="check-row"><input type="checkbox" id="c4" disabled> Run Sound & Light Simulation</label>
       </div>
     </div>
-     <!-- Challenges Checklist -->
-    <div class="floating-panel challenges-panel">
-      <a href="https://ecsarmiento.github.io/EdsArduino1/" target="_blank">
+    <!-- Challenges Link Panel -->
+    <div class="challenges-panel">
+      <a href="https://ecsarmiento.github.io/EdsArduino1/" target="_blank" rel="noopener">
         <div class="card-icon">🤖</div>
         <div class="card-title">Eds Arduino Challenges</div>
-        <div class="card-desc">Study More</div>
+        <div class="card-desc">Study More →</div>
       </a>
     </div>
-
-    
     <!-- Floating Panels (Code, JSON, Serial - Fully Draggable) -->
     <div class="floating-panel code-panel" id="codePanel">
       <div class="panel-header">
@@ -449,15 +413,12 @@
           <button class="action-btn" id="closeCode">✕</button>
         </div>
       </div>
-      <textarea class="code-editor" id="codeText" spellcheck="false">
-const int LED_PIN = 13;
-
+      <textarea class="code-editor" id="codeText" spellcheck="false">const int LED_PIN = 13;
 void setup() {
   pinMode(LED_PIN, OUTPUT);
   Serial.begin(9600);
   Serial.println("Arduino Hardware Studio Initialized.");
 }
-
 void loop() {
   digitalWrite(LED_PIN, HIGH);
   Serial.println("State: LED HIGH (5V)");
@@ -465,10 +426,8 @@ void loop() {
   digitalWrite(LED_PIN, LOW);
   Serial.println("State: LED LOW (0V)");
   delay(1000);
-}
-      </textarea>
+}</textarea>
     </div>
-
     <div class="floating-panel json-panel" id="jsonPanel">
       <div class="panel-header">
         <span>⚙️ diagram.json (Wokwi Layout)</span>
@@ -477,17 +436,14 @@ void loop() {
           <button class="action-btn" id="closeJson">✕</button>
         </div>
       </div>
-      <textarea class="json-editor" id="jsonText" readonly spellcheck="false">
-{
+      <textarea class="json-editor" id="jsonText" readonly spellcheck="false">{
   "version": 1,
   "author": "Edz Sarmiento",
   "editor": "wokwi-studio-pro",
   "parts": [],
   "connections": []
-}
-      </textarea>
+}</textarea>
     </div>
-
     <div class="floating-panel serial-panel">
       <div class="panel-header">
         <span>📟 Serial Monitor (9600 baud)</span>
@@ -497,7 +453,6 @@ void loop() {
         <div style="color:#38bdf8;">[System] Audio & simulation engine ready.</div>
       </div>
     </div>
-
     <!-- Toolbar -->
     <div class="toolbar">
       <button class="btn btn-play" id="play">▶ Run Simulation</button>
@@ -510,11 +465,9 @@ void loop() {
     </div>
   </div>
 </div>
-
 <script>
-// WEB AUDIO API SOUND SYNTHESIS
+// ========== WEB AUDIO API SOUND SYNTHESIS ==========
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
 function playClickSound() {
   if(audioCtx.state === 'suspended') audioCtx.resume();
   const osc = audioCtx.createOscillator();
@@ -528,7 +481,6 @@ function playClickSound() {
   osc.start();
   osc.stop(audioCtx.currentTime + 0.05);
 }
-
 function playTone(freq, duration = 200) {
   if(audioCtx.state === 'suspended') audioCtx.resume();
   const osc = audioCtx.createOscillator();
@@ -543,11 +495,10 @@ function playTone(freq, duration = 200) {
   osc.stop(audioCtx.currentTime + (duration / 1000));
 }
 
-// DRAGGABLE FLOATING PANELS LOGIC
+// ========== DRAGGABLE FLOATING PANELS ==========
 document.querySelectorAll('.floating-panel').forEach(panel => {
   const header = panel.querySelector('.panel-header');
   let isDragging = false, startX, startY;
-
   header.addEventListener('mousedown', e => {
     isDragging = true;
     startX = e.clientX - panel.offsetLeft;
@@ -555,7 +506,6 @@ document.querySelectorAll('.floating-panel').forEach(panel => {
     panel.style.zIndex = 100;
     e.stopPropagation();
   });
-
   window.addEventListener('mousemove', e => {
     if (!isDragging) return;
     panel.style.left = `${e.clientX - startX}px`;
@@ -563,16 +513,17 @@ document.querySelectorAll('.floating-panel').forEach(panel => {
     panel.style.bottom = 'auto';
     panel.style.right = 'auto';
   });
-
   window.addEventListener('mouseup', () => { isDragging = false; });
 });
 
-// STATE & SIMULATION ENGINE
+// ========== STATE & SIMULATION ENGINE ==========
 const canvas = document.getElementById('canvas');
 const wiresLayer = document.getElementById('wires');
 const serial = document.getElementById('serial');
 const codePanel = document.getElementById('codePanel');
 const jsonPanel = document.getElementById('jsonPanel');
+const workspace = document.getElementById('workspace');
+
 let placed = [];
 let wires = [];
 let nextId = 1;
@@ -591,7 +542,7 @@ function logMessage(msg, type='ok') {
   serial.scrollTop = serial.scrollHeight;
 }
 
-// EDUCATIONAL HOVER TOOLTIPS
+// ========== EDUCATIONAL HOVER TOOLTIPS ==========
 document.querySelectorAll('.component-item').forEach(item => {
   item.addEventListener('mouseenter', () => {
     document.getElementById('expTitle').textContent = item.querySelector('.comp-name').textContent.split('(')[0].trim();
@@ -599,7 +550,7 @@ document.querySelectorAll('.component-item').forEach(item => {
   });
 });
 
-// THEME TOGGLE
+// ========== THEME TOGGLE ==========
 document.getElementById('themeToggle').addEventListener('click', () => {
   const html = document.documentElement;
   const current = html.getAttribute('data-theme');
@@ -608,7 +559,7 @@ document.getElementById('themeToggle').addEventListener('click', () => {
   playClickSound();
 });
 
-// WIRE COLOR SELECTION
+// ========== WIRE COLOR SELECTION ==========
 document.querySelectorAll('.wire-swatch').forEach(sw => {
   sw.addEventListener('click', () => {
     document.querySelectorAll('.wire-swatch').forEach(s => s.classList.remove('selected'));
@@ -618,15 +569,19 @@ document.querySelectorAll('.wire-swatch').forEach(sw => {
   });
 });
 
-// DRAG AND DROP
+// ========== DRAG AND DROP FROM SIDEBAR ==========
 document.querySelectorAll('.component-item').forEach(item => {
   item.addEventListener('dragstart', e => {
     e.dataTransfer.setData('type', item.dataset.type);
+    e.dataTransfer.effectAllowed = 'copy';
   });
 });
 
-const workspace = document.getElementById('workspace');
-workspace.addEventListener('dragover', e => e.preventDefault());
+workspace.addEventListener('dragover', e => {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'copy';
+});
+
 workspace.addEventListener('drop', e => {
   e.preventDefault();
   const type = e.dataTransfer.getData('type');
@@ -635,10 +590,11 @@ workspace.addEventListener('drop', e => {
   spawnComponent(type, e.clientX - rect.left - 60, e.clientY - rect.top - 60);
 });
 
+// ========== COMPONENT FACTORY ==========
 function spawnComponent(type, x, y, customId = null) {
   const id = customId || `comp-${nextId++}`;
   let html = '';
-
+  
   if(type === 'arduino') {
     html = `<div class="arduino">
       <div class="arduino-name">ARDUINO UNO R3</div>
@@ -700,6 +656,7 @@ function spawnComponent(type, x, y, customId = null) {
   el.dataset.id = id;
   el.dataset.type = type;
 
+  // Component drag within workspace
   let dragging = false, startX, startY;
   el.addEventListener('mousedown', ev => {
     if(ev.target.closest('[data-pin]')) return;
@@ -738,17 +695,21 @@ function updateCounts() {
 function checkObjectives() {
   document.getElementById('c1').checked = counts.arduino > 0 && counts.breadboard > 0;
   document.getElementById('c2').checked = counts.led > 0 && counts.resistor > 0;
+  document.getElementById('c3').checked = wires.length > 0;
+  document.getElementById('c4').checked = simRunning;
 }
 
-// WIRING SYSTEM WITH AUDIO
+// ========== WIRING SYSTEM ==========
 const wireBtn = document.getElementById('wireBtn');
 wireBtn.addEventListener('click', () => {
   wiringMode = !wiringMode;
   wireBtn.textContent = `🔗 Wiring Mode: ${wiringMode ? 'ON' : 'OFF'}`;
   wireBtn.style.background = wiringMode ? '#22c55e' : 'var(--primary)';
   wireStartPin = null;
+  // Clear any leftover selection highlight
+  document.querySelectorAll('.pin.selected').forEach(p => p.classList.remove('selected'));
   playClickSound();
-  logMessage(wiringMode ? 'Wiring mode active. Click any two pins to bridge.' : 'Wiring mode disabled.');
+  logMessage(wiringMode ? 'Wiring mode active. Click two pins to connect.' : 'Wiring mode disabled.');
 });
 
 document.addEventListener('click', e => {
@@ -757,26 +718,33 @@ document.addEventListener('click', e => {
 
   if(!wireStartPin) {
     wireStartPin = pin;
-    pin.style.boxShadow = '0 0 0 3px #22c55e';
+    pin.classList.add('selected');
     playClickSound();
     logMessage(`Selected start pin: ${pin.dataset.pin}`);
   } else {
-    if(wireStartPin === pin) return;
-    wireStartPin.style.boxShadow = '';
+    if(wireStartPin === pin) {
+      // Cancel if same pin clicked again
+      wireStartPin.classList.remove('selected');
+      wireStartPin = null;
+      logMessage('Selection cancelled.');
+      return;
+    }
+    
+    wireStartPin.classList.remove('selected');
     wires.push({ from: wireStartPin, to: pin, color: selectedColor });
     wireStartPin = null;
     updateWires();
     updateDiagramJSON();
-    document.getElementById('c3').checked = true;
+    checkObjectives();
     playClickSound();
-    logMessage('Jumper wire connected successfully.');
+    logMessage(`Wire connected: ${wires.length} total`);
   }
 });
 
 function getPinCenter(pin) {
   const r = pin.getBoundingClientRect();
   const wr = workspace.getBoundingClientRect();
-  return { x: r.left + r.width/2 - wr.left, y: r.top + r.height/2 - wr.top };
+  return { x: r.x + r.width / 2 - wr.left, y: r.top + r.height / 2 - wr.top };
 }
 
 function updateWires() {
@@ -792,7 +760,7 @@ function updateWires() {
   });
 }
 
-// WOKWI-STYLE JSON GENERATOR
+// ========== WOKWI-STYLE JSON GENERATOR ==========
 function updateDiagramJSON() {
   const parts = [];
   document.querySelectorAll('.placed').forEach(el => {
@@ -803,7 +771,6 @@ function updateDiagramJSON() {
       left: parseInt(el.style.left)
     });
   });
-
   const jsonOutput = {
     version: 1,
     author: "Edz Sarmiento",
@@ -811,43 +778,46 @@ function updateDiagramJSON() {
     parts: parts,
     connections: wires.map(w => [w.from.dataset.pin, w.to.dataset.pin, w.color])
   };
-
   document.getElementById('jsonText').value = JSON.stringify(jsonOutput, null, 2);
 }
 
-// AUTO-ARRANGE FEATURE
+// ========== AUTO-ARRANGE FEATURE ==========
 document.getElementById('autoArrangeBtn').addEventListener('click', () => {
   canvas.innerHTML = '';
   wiresLayer.innerHTML = '';
   wires = [];
   counts = { arduino: 0, breadboard: 0, led: 0, resistor: 0, button: 0, battery: 0, speaker: 0 };
-
+  
   spawnComponent('arduino', 50, 60, 'uno');
   spawnComponent('breadboard', 280, 60, 'bb1');
   spawnComponent('resistor', 340, 320, 'r1');
   spawnComponent('led', 430, 310, 'led1');
-
+  
   updateCounts();
   updateDiagramJSON();
+  checkObjectives();
   playClickSound();
   logMessage('⚡ Auto-arranged components into a standard layout!', 'ok');
 });
 
-// SIMULATION ENGINE WITH AUDIO & TONES
+// ========== SIMULATION ENGINE ==========
 document.getElementById('play').addEventListener('click', () => {
-  if(simRunning) return;
+  if (simRunning) return;
   simRunning = true;
   playClickSound();
   logMessage('Compiling sketch.ino and launching hardware simulation...', 'ok');
-  document.getElementById('c4').checked = true;
-
+  
   let state = false;
   simulationLoop = setInterval(() => {
     state = !state;
     document.querySelectorAll('.led-bulb').forEach(bulb => bulb.classList.toggle('on', state));
     document.getElementById('mmScreen').textContent = state ? '3.28 V' : '0.00 V';
-    if(state) playTone(523.25, 150); // C5 note tone
-    logMessage(state ? 'DigitalWrite(13, HIGH) -> LED ON (20mA)' : 'DigitalWrite(13, LOW) -> LED OFF (0mA)', state ? 'ok' : 'warn');
+    if (state) playTone(523.25, 150);
+    logMessage(
+      state ? 'digitalWrite(13, HIGH) → LED ON (~20mA)' : 'digitalWrite(13, LOW) → LED OFF (0mA)',
+      state ? 'ok' : 'warn'
+    );
+    checkObjectives();
   }, 1000);
 });
 
@@ -858,24 +828,49 @@ document.getElementById('stop').addEventListener('click', () => {
   document.getElementById('mmScreen').textContent = '0.00 V';
   playClickSound();
   logMessage('Simulation execution stopped.', 'warn');
+  checkObjectives();
 });
 
-// TOOLBAR & PANELS
-document.getElementById('codeToggle').addEventListener('click', () => { codePanel.classList.toggle('show'); jsonPanel.classList.remove('show'); playClickSound(); });
-document.getElementById('jsonToggle').addEventListener('click', () => { jsonPanel.classList.toggle('show'); codePanel.classList.remove('show'); playClickSound(); });
-document.getElementById('closeCode').addEventListener('click', () => { codePanel.classList.remove('show'); playClickSound(); });
-document.getElementById('closeJson').addEventListener('click', () => { jsonPanel.classList.remove('show'); playClickSound(); });
-document.getElementById('clearSerial').addEventListener('click', () => { serial.innerHTML = '<div style="color:#38bdf8;">[System] Console cleared.</div>'; playClickSound(); });
+// ========== PANEL TOGGLES & UTILITIES ==========
+document.getElementById('codeToggle').addEventListener('click', () => {
+  codePanel.classList.toggle('show');
+  jsonPanel.classList.remove('show');
+  playClickSound();
+});
+
+document.getElementById('jsonToggle').addEventListener('click', () => {
+  jsonPanel.classList.toggle('show');
+  codePanel.classList.remove('show');
+  playClickSound();
+});
+
+document.getElementById('closeCode').addEventListener('click', () => {
+  codePanel.classList.remove('show');
+  playClickSound();
+});
+
+document.getElementById('closeJson').addEventListener('click', () => {
+  jsonPanel.classList.remove('show');
+  playClickSound();
+});
+
+document.getElementById('clearSerial').addEventListener('click', () => {
+  serial.innerHTML = '<div style="color:#38bdf8;">[System] Console cleared.</div>';
+  playClickSound();
+});
+
 document.getElementById('copyCode').addEventListener('click', () => {
   navigator.clipboard.writeText(document.getElementById('codeText').value);
-  logMessage('Code copied to system clipboard.');
+  logMessage('Code copied to clipboard ✅');
   playClickSound();
 });
+
 document.getElementById('copyJson').addEventListener('click', () => {
   navigator.clipboard.writeText(document.getElementById('jsonText').value);
-  logMessage('diagram.json copied to system clipboard.');
+  logMessage('diagram.json copied to clipboard ✅');
   playClickSound();
 });
+
 document.getElementById('clearCanvas').addEventListener('click', () => {
   simRunning = false;
   clearInterval(simulationLoop);
