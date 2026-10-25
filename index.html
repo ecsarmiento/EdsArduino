@@ -262,6 +262,52 @@
   .wire-swatch { width: 26px; height: 26px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: transform 0.1s; }
   .wire-swatch:hover { transform: scale(1.15); }
   .wire-swatch.selected { border-color: var(--text-main); transform: scale(1.2); }
+  .challenges-panel:hover {
+    border-color: #4b5563;
+    transform: translateY(-1px);
+  }
+
+  .challenges-panel a {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: inherit;
+    align-items: center;
+  }
+
+  .challenges-panel .card-icon {
+    grid-row: 1 / span 2;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .challenges-panel .card-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.4;
+  }
+
+  .challenges-panel .card-desc {
+    font-size: 10px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    transition: color 0.15s ease;
+  }
+
+  .challenges-panel a:hover .card-desc {
+    color: var(--blue);
+  }
+  
 </style>
 </head>
 <body>
